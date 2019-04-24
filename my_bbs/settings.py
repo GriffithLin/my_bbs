@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'blog',#注册blog应用
 ]
 
 MIDDLEWARE = [
@@ -102,10 +103,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+#django设置为中文
+LANGUAGE_CODE = 'zh-hans'
+#时区设置
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
