@@ -19,6 +19,11 @@ def detail(request, pk):
                                       'markdown.extensions.codehilite',
                                       'markdown.extensions.toc',
                                   ])
+                                  
+    
+    
+    post.increase_views()
+    
     # 记得在顶部导入 CommentForm
     form = CommentForm()
     # 获取这篇 post 下的全部评论
