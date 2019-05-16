@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8">
@@ -29,9 +29,10 @@
                         {% endif %}
                     {% endfor %}
                     <button type="submit" class="btn btn-primary btn-block">注册</button>
+                    <input type="hidden" name="next" value="{{ next }}"/>
                 </form>
                 <div class="flex-center top-gap text-small">
-                    <a href="login.html">已有账号登录</a>
+                    <a href="{% url 'login' %}?next={{ next }}">已有账号登录</a>
                 </div>
             </div>
         </div>

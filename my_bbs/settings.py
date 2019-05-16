@@ -12,8 +12,21 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+#When user use login and logout page without previous history.
+#user will jump to the index
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
 
-    
+#直接发送邮件到终端
+EMAIL_BACKEND =  'django.core.mail.backends.smtp.EmailBackend' 
+#FOR QQemail
+EMAIL_HOST = 'smtp.qq.com' 
+EMAIL_PORT = 25 
+EMAIL_HOST_USER ='1171745897@qq.com'
+EMAIL_HOST_PASSWORD = 'eohohxrkpwltijjh' 
+EMAIL_USE_TLS = True 
+EMAIL_FROM ='1171745897@qq.com' 
+DEFAULT_FROM_EMAIL = '1171745897@qq.com'   
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -106,7 +119,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+#需要使用哪些 Backends 对用户的凭据信息进行验证
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'users.backends.EmailBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -127,4 +144,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
